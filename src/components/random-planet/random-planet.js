@@ -5,32 +5,23 @@ import SwapService from '../../services/swapi-service'
 export default class RandomPlanet extends Component{
     swapservice = new SwapService();
     state={
-        id:null,
-        name:null,
-        population:null,
-        diameter:null,
-        rotationPeriod:null
+        planet:null
     }
     constructor(){
         super();
         this.updatePlanet()
     }
+    onPlanetLoaded = (planet)=>{
+        this.setState({planet})
+    }
     updatePlanet(){
-        const id=Math.floor(Math.random()*25) + 2;
+        const id=12;
         this.swapservice
         .getPlanet(id)
-        .then((planet)=>{
-            this.setState({
-                id,
-                name:planet.name,
-                population:planet.population,
-                rotationPeriod:planet.rotation_period,
-                diameter:planet.diameter
-            })
-        })
+        .then(this.onPlanetLoaded);
     }
     render(){
-        const {id, name, population, diameter, rotationPeriod} = this.state;
+        const {planet:{id, name, population, diameter, rotationPeriod}} = this.state;
         return(
             
             <div className='random-planet jumbotron rounded'>
