@@ -1,0 +1,22 @@
+.random-planet img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.random-planet ul{
+    width:50%
+
+}
+
+.random-planet{
+    margin: 0 0 20px 0;
+    background-color: #303030;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.list-group-flush{
+    display: flex;
+}

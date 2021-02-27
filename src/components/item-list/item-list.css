@@ -1,0 +1,14 @@
+.item-list .list-group-item {
+	cursor: pointer;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:red;
+}
+
+.item-list .list-group-item:hover {
+	background-color: #444;
+}
