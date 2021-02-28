@@ -1,25 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from '../header';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 import RandomPlanet from '../random-planet';
 import './app.css'
 
-const App=()=>{
+export default class App extends Component{
+    state={
+        selectedPerson:5
+    }
+    onSelect=(id)=>{
+        this.setState({
+            selectedPerson:id
+        })
+    }
+    render(){
     return(
         <div>
-            <Header/>
+            <Header/>    
             <RandomPlanet/>
             <div className='row mb2'>
                 <div className='col-md-6'>
-                    <ItemList />
+                    <ItemList onItemSelected={this.onSelect} />
                 </div>
                 <div className='col-md-6'>
-                <PersonDetails />
-                 </div>  
+                  <PersonDetails personId={this.state.selectedPerson}/>
+                </div>  
             </div>
         </div>
     )
+    }
 }
 
-export default App;
+ 
